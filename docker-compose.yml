@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  node-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      DB_HOST:
+      DB_PORT:
+      DB_USERNAME:
+      DB_PASSWORD:
+      DB_NAME:
+    ports:
+      - 3000:3000
