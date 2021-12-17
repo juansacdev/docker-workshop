@@ -1,5 +1,5 @@
 import { config } from 'dotenv'
-import express, { Application } from 'express'
+import express, { Application, Request, Response } from 'express'
 import { MongoClient } from 'mongodb'
 
 const app: Application = express()
@@ -7,14 +7,13 @@ config()
 
 const mongoURI = process.env.MONGO_URI ?? ''
 
-app.get('/', (_req, res) => {
+app.get('/', (_req: Request, res: Response) => {
   MongoClient.connect(mongoURI, (err, db) => {
     if (err) {
-      res.status(500).send('💥  BOOM: No se conecto la db 💥')
+      res.status(500).send('💥  Nope: No se conecto la db 💥')
     } else {
-      res.send('Me conecté a la db! 😎')
-      // @ts-ignore
-      db.close()
+      res.send('Hello world!!! me conecte a la db con Docker 🐳')
+      db && db.close()
     }
   })
 })
