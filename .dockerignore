@@ -1,0 +1,9 @@
+node_modules/
+*.gitignore
+Dockerfile
+*.eslint*
+*.prettier*
+*.yml
+*.md
+.vscode/
+tmp/
